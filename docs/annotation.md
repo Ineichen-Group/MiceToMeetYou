@@ -99,7 +99,8 @@ Animals should be categorized into one of the groups below. Multiple options may
 | __Group__ | __Includes (non-exhaustive)__ |
 |---|---|
 | Mice | - |
-| Other Rodents | Rats, guinea pigs |
+| Rats | - |
+| Other Rodents | Rabbits, guinea pigs |
 | Non-Human Primates | ... |
 | Pigs / Swine | - |
 | Dogs / Canines | - |
@@ -143,12 +144,11 @@ NAMs should be categorised into the labels below, multiple selections are possib
 
 | NAM | Notes |
 |---|---|
-| Cell lines / primary cells (2D) | |
+| Cell lines / primary cells (2D) | Includes stem cell-derived models, iPSC, ESC (human or animal origin) |
 | Organoids / 3D models | |
 | Organ-on-a-chip / microphysiological systems | |
 | Ex vivo tissue / explants | Tissue/organs taken from an animal that was harmed to obtain the tissue will __Ex vivo__ in Q2. This selection is for NAM approaches, e.g. the tissue is being used standalone as an experimental or screening platform. Do not re-flag the same fact if already captured in Q2. |
 | In silico / computational model | QSAR, PBPK, ML-Based prediction |
-| Stem cell-derived models | iPSC, ESC (human or animal origin) |
 | Other | Specify |
 
 
@@ -222,6 +222,10 @@ __SELECTING CATEGORIES:__ Be generous in selections, if a study plausibly fits a
 --- 
 
 ## Changelog 
+
+_2026.08.18_
+1. Split rodents into rats and other rodents 
+1. Combined Cell lines (2D) and Stem Cell NAMs
 
 
 ## To Do
