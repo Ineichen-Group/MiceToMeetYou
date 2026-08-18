@@ -26,18 +26,6 @@ The issue will start a thread where I and others can respond, this will also kee
 __Existing Issues__
 You can close an issue of your own, or add a comment to an issue to say that you resolved it yourself. As such, it is better to submit the issue early on and then later close/comment to say that it is resolved than to hold off on submitting an issue. 
 
-## Repository structure
-
-```
-.
-├── app/              # Django project (web app / dashboard)
-├── docs/             # project documentation (see below)
-├── oneshots/         # standalone scripts, not part of the app
-├── compose.yml       # Docker Compose services
-├── Dockerfile
-└── pyproject.toml
-```
-
 ## Documentation
 
 - [`docs/dataset.md`](docs/dataset.md):  how the corpus is sourced (OpenAlex,
@@ -45,11 +33,6 @@ You can close an issue of your own, or add a comment to an issue to say that you
   is pulled.
 - [`docs/annotation.md`](docs/annotation.md): annotation guidelines used to
   label the training/eval dataset.
-
-## Development
-
-Setup and local development instructions will be added once the Django app
-is scaffolded.
 
 ## License
 
