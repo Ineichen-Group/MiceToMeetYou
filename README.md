@@ -10,7 +10,7 @@ The annotation is performed manually in accordance with the guidelines [here](do
 
 ### Questions and notes 
 
-__For the annotators:__ Please [submit an issue](/issues) if you have any questions or uncertainties; whether they relate to the annotation in general or to a specific text. 
+__For the annotators:__ Please [submit an issue](/../../issues) if you have any questions or uncertainties; whether they relate to the annotation in general or to a specific text. 
 
 #### To submit an issue
 
