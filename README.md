@@ -34,6 +34,22 @@ You can close an issue of your own, or add a comment to an issue to say that you
 - [`docs/annotation.md`](docs/annotation.md): annotation guidelines used to
   label the training/eval dataset.
 
+## Setup 
+
+### Environment 
+
+Provided is a `.env.example` file. This should be copied into a `.env` file with the `change-me` values set to secure passwords. Additionally, if not running locally, `DJANGO_ALLOWED_HOSTS` should be set to the necessary value(s).
+
+### Running 
+
+The system can be run with docker:
+
+```bash 
+docker compose up --build
+```
+
+The app will then be live at localhost:8000
+
 ## License
 
 See [`LICENSE`](LICENSE).
