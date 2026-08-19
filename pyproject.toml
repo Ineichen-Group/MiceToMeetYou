@@ -2,11 +2,8 @@
 name = "mice-to-meet-you"
 version = "0.1.0"
 description = ""
-requires-python = ">=3.12"
-dependencies = []
-
-[tool.uv]
-dev-dependencies = [
-    "ruff",
-    "pytest",
+requires-python = ">=3.13"
+dependencies = [
+    "django>=6.1",
+    "psycopg[binary]>=3.2"
 ]

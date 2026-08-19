@@ -37,3 +37,10 @@ You can close an issue of your own, or add a comment to an issue to say that you
 ## License
 
 See [`LICENSE`](LICENSE).
+
+## Django version
+
+Currently pinned to Django 6.1 (standard release, not LTS). Plan to upgrade
+to Django 6.2 once it's released (LTS, expected ~spring 2027) — support for
+6.1 ends April 2027. Check the 6.2 release notes for backwards-incompatible
+changes before bumping: https://docs.djangoproject.com/en/6.2/releases/6.2/

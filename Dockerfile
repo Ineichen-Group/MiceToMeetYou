@@ -1,11 +1,26 @@
-FROM python:3.12-slim
+FROM python:3.13-slim-trixie
 
-RUN pip install uv
+# uv from official binary
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/ 
+
+ENV UV_COMPILE_BYTECODE=1   \
+    UV_LINK_MODE=copy       \
+    PYTHONUNBUFFERED=1      \
+    PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
-COPY pyproject.toml .
-RUN uv sync
+
+COPY pyproject.toml uv.lock* ./ 
+
+# Attempt to use existing uv.lock else fallback to generate 
+RUN uv sync --frozen --no-install-project --no-dev || 
+    uv sync --no-install-project --no-dev
 
 COPY . .
+RUN uv sync --frozen --no-dev || uv sync --no-dev 
 
-CMD ["uv", "run", "python", "-m", "mice-to-meet-you"]
+COPY scripts/entrypoint.sh /entrypoint.sh 
+RUN chmod +x /entrypoint.sh 
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["uv", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
