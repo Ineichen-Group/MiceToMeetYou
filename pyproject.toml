@@ -7,3 +7,7 @@ dependencies = [
     "django>=6.1",
     "psycopg[binary]>=3.2"
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
