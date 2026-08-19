@@ -12,15 +12,14 @@ WORKDIR /app
 
 COPY pyproject.toml uv.lock* ./ 
 
-# Attempt to use existing uv.lock else fallback to generate 
-RUN uv sync --frozen --no-install-project --no-dev || 
-    uv sync --no-install-project --no-dev
+RUN uv sync --no-install-project --no-dev
+    
 
 COPY . .
-RUN uv sync --frozen --no-dev || uv sync --no-dev 
+RUN uv sync --no-dev 
 
 COPY scripts/entrypoint.sh /entrypoint.sh 
 RUN chmod +x /entrypoint.sh 
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["uv", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["uv", "run", "python", "src/manage.py", "runserver", "0.0.0.0:8000"]

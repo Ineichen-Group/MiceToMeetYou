@@ -1,0 +1,10 @@
+.git 
+.gitignore 
+.venv/
+docs/ 
+README.md 
+LICENSE
+oneshots/
+*.md 
+.env 
+.env.example

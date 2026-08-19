@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-app}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-app}"]
       interval: 5s
@@ -26,6 +26,7 @@ services:
       - .:/app
     # separate service for periodic API pulls; swap for celery beat later if needed
   fetcher:
+    profiles: ["disabled"] # disabled for initial testing and setup
     build: .
     restart: unless-stopped
     env_file: .env
@@ -34,7 +35,7 @@ services:
         condition: service_healthy
     volumes:
       - .:/app
-    command: ["uv", "run", "python", "manage.py", "fetch_data_loop"]
+    command: ["uv", "run", "python", "src/manage.py", "fetch_data_loop"]
 
 volumes:
   db-data:
