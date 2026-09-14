@@ -34,6 +34,10 @@ You can close an issue of your own, or add a comment to an issue to say that you
 - [`docs/annotation.md`](docs/annotation.md): annotation guidelines used to
   label the training/eval dataset.
 
+## One Shots 
+
+Scripts that are not part of the main app.
+
 ## Setup 
 
 ### Environment 
@@ -48,7 +52,7 @@ The system can be run with docker:
 docker compose up --build
 ```
 
-The app will then be live at localhost:8000
+The app will then be live at [localhost:8000](http://localhost:8000)
 
 ## License
 
@@ -56,7 +60,4 @@ See [`LICENSE`](LICENSE).
 
 ## Django version
 
-Currently pinned to Django 6.1 (standard release, not LTS). Plan to upgrade
-to Django 6.2 once it's released (LTS, expected ~spring 2027) — support for
-6.1 ends April 2027. Check the 6.2 release notes for backwards-incompatible
-changes before bumping: https://docs.djangoproject.com/en/6.2/releases/6.2/
+Currently pinned to Django 6.1 which is a standard release, not a long term support (LTS) release. The next LTS should be Django 6.2 (expected spring 2027) and this project will be upgraded once this is released. 

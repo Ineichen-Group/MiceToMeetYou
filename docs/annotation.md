@@ -26,31 +26,29 @@ If any of these are not present that is due to the data not being provided by Op
 ## General Decision Flow 
 
 ```
-Q1: Is this a preclinical study?
-  ├── No  → STOP. Leave all remaining fields blank.
-  └── Yes → continue to Q2, Q3, Q4 (all apply; not mutually exclusive)
-              Q2: Does it use animals?       (In-Vivo / Ex-Vivo / No)
-              Q3: Does it use NAMs?          (Yes / No)
-Q4: Disease area(s)            (multi-select)
+Q1: Does this research involve animals or Non-Animal Methods (NAMs)?
+  ├── No / Non-English Text/Title / Incomplete Text / Unclear  → STOP. Leave all remaining fields blank.
+  └── Yes → continue to Q2, Q3, Q4, Q5 (all apply; not mutually exclusive)
+              Q2: Does it use animals?              (In-Vivo / Ex-Vivo / No)
+              Q3: Does it use human cells/tissue?   (Yes / No)
+              Q4: Does it use NAMs?                 (Yes / No)
+Q5: Disease area(s)            (multi-select)
 ```
 
 A single paper can include selections for both animal study and NAM study (for example; an in-vivo experiment alongside an organoid arm within the same paper). Select all applicable types, these are not mutually exclusive categories.
 
 ## Question by Question Flow
 
-### Q1: Is this a preclinical study?
+### Q1: Does this research involve animals or Non-Animal Methods (NAMs)?
 
 __DEFINITION:__ A study using one or more of the following:
-- In vivo animal experiments 
-- Ex vivo animal tissue 
-- In vitro experiments 
-- Computational (in silico) models 
-- Other NAM-based research (fully detailed in Q3)
+- Animal use (in vivo or ex vivo) — see Q2 for detail
+- Non-Animal Methods (NAMs), e.g. in vitro, organoid, or computational approaches — see Q4 for detail
 
 | | |
 |---|---|
 | Conditional on | - |
-| Options | Yes / No |
+| Options | Yes / No / Non-English Text/Title / Incomplete Text / Unclear |
 
 __INCLUDE__
 - Any non-human animal species (embryonic through to adult), studied in vivo or ex vivo.
@@ -63,11 +61,11 @@ __EXCLUDE__
     - The distinction from the Include above is: _is the human material being used as a mechanistic/preclinical model system (include) vs. as a clinical/diagnostic sample (exclude).
 - Case reports, clinical trials of any phase 
 
-If __No__ annotation for this paper is complete, no further questions will be provided.
+If __No__, __Non-English Text/Title__, __Incomplete Text__, or __Unclear__, annotation for this paper is complete, no further questions will be provided.
 
 ### Q2: Does the study use animals?
 
-> Note: This question is __not__ mutually exclusive with Q3.
+> Note: This question is __not__ mutually exclusive with Q3 or Q4.
 
 | | |
 |---|---|
@@ -108,6 +106,7 @@ Animals should be categorized into one of the groups below. Multiple options may
 | Birds / Avian | - |
 | Livestock (non-rodent, non-swine) | Cattle, Sheep, Goats |
 | Invertebrates | Drosophila/insects, C. elegans |
+| Unclear / Unreported | Species/animal type is not specified or cannot be determined from the text |
 | Other | Specify |
 
 If unsure about which category a species falls into, and unable to clarify this through further research; select __Other__ and list the species name.
@@ -121,7 +120,20 @@ _This will be shown per species group selected in Q2a_
 | Conditional on | Q2 != __No__ |
 | Options | Female / Male / Mixed / Not reported |
 
-### Q3: Does the study use NAMs?
+### Q3: Does the study use human cells/tissue?
+
+> Note: This question is __not__ mutually exclusive with Q2 or Q4.
+
+| | |
+|---|---| 
+| Conditional on | Q1 = __Yes__ |
+| Options | Yes / No |
+
+__DEFINITION:__ The study uses human-derived cells, tissue, or other biological material (e.g. human cell lines, human iPSC/ESC-derived material, human tissue explants) as part of the preclinical model system, as distinct from human material used in a clinical/diagnostic context (excluded at Q1).
+
+### Q4: Does the study use NAMs?
+
+> Note: This question is __not__ mutually exclusive with Q2 or Q3.
 
 | | |
 |---|---| 
@@ -132,11 +144,11 @@ __DEFINITION:__ Non-Animal Methods (NAMs) are used to asses biological activity 
 
 
 
-### Q3a: Which NAM type(s)?
+### Q4a: Which NAM type(s)?
 
 | | |
 |---|---| 
-| Conditional on | Q3 = __Yes__ |
+| Conditional on | Q4 = __Yes__ |
 | Options | _see below_ |
 
 
@@ -154,7 +166,7 @@ NAMs should be categorised into the labels below, multiple selections are possib
 
 If unsure about which category a NAM falls into, and unable to clarify this through further research; select __Other__ and list the model or process name.
 
-### Q4: What disease area does this research target? 
+### Q5: What disease area does this research target? 
 
 | | |
 |---|---| 
@@ -192,6 +204,7 @@ __Additional labels__
 |---|---|
 | Veterinary / non-human animal health | |
 | Agricultural | |
+| Basic Research | Fundamental/mechanistic research not targeting a specific disease area |
 | Other | Specify |
 
 It is unlikely that __Other__ will be required, it is present only to capture situations not considered during the planning stage. If selecting other, please be as specific as possible in the description.
@@ -211,17 +224,26 @@ __SELECTING CATEGORIES:__ Be generous in selections, if a study plausibly fits a
 
 | # | Question | Answer | Notes (illustrative only — not required from annotator) |
 |---|---|---|---|
-| 1 | Preclinical study? | **Yes** | Mouse model study investigating ovarian function after chemotherapy and bone marrow transplantation. |
+| 1 | Animal use or NAMs? | **Yes** | Mouse model study investigating ovarian function after chemotherapy and bone marrow transplantation. |
 | 2 | Uses animals? | **In-Vivo** | |
 | 2a | Species group(s) | Rodents | Female mice used as both donors and recipients. |
 | 2b | Sex (Rodents) | Female | |
-| 3 | Uses NAMs? | **No** | |
-| 4 | Disease area | **II — Neoplasms**; **XIV — Genitourinary** | Cancer survivorship context (chemotherapy-induced menopause); ovarian function and fertility as primary outcome. |
+| 3 | Uses human cells/tissue? | **No** | |
+| 4 | Uses NAMs? | **No** | |
+| 5 | Disease area | **II — Neoplasms**; **XIV — Genitourinary** | Cancer survivorship context (chemotherapy-induced menopause); ovarian function and fertility as primary outcome. |
 
 
 --- 
 
 ## Changelog 
+
+_2026.09.14_
+1. Reworded Q1 header from "Is this a preclinical study?" to "Does this research involve animal use or Non-Animal Methods (NAMs)?" and simplified its definition bullet list accordingly, pointing to Q2/Q4 for detail
+1. Added Non-English Text/Title, Incomplete Text, and Unclear options to Q1
+1. Added Unclear/Unreported option to Q2a species groups
+1. Added new Q3: Does the study use human cells/tissue? (NAMs question renumbered Q3→Q4, Q3a→Q4a, disease area Q4→Q5)
+1. Added Basic Research as an additional label in the disease area question
+1. Fixed Q1 definition's cross-reference to the NAMs question (now Q4) and added a mutual-exclusivity note to Q4 to match Q2/Q3
 
 _2026.08.18_
 1. Split rodents into rats and other rodents 
